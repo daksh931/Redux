@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
+import { counterActions } from "../store";
 
 const Counter = () => {
   const dispatch = useDispatch();
@@ -6,19 +7,23 @@ const Counter = () => {
   const show = useSelector((state) => state.showCounter);
 
   const incrementHandler = () => {
-    dispatch({ type: "increment" });
+    dispatch(counterActions.increment());
   };
 
   const incrementHandlerbY5 = () => {
-    dispatch({ type: "incrementBy5", value: 5 });
+    dispatch(counterActions.incrementBy5(5)); 
+    // toolkit will auto create obj-> { type: SOME_UNIQUE_IDENTIFIER, payload: 5}
+    //      'payload' <-syntax is automatically created by toolkit and assign value to it 
+    //       whatever passed in func() 
+
   };
 
   const decrementHandler = () => {
-    dispatch({ type: "decrement" });
+    dispatch(counterActions.decrement());
   };
 
   const toggleHandler = () => {
-    dispatch({ type: "toggleCounter" });
+    dispatch(counterActions.toggleCounter());
   };
   return (
     <div className="flex flex-col items-center mt-36 ">
