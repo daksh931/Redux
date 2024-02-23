@@ -1,4 +1,4 @@
-import { createStore } from "redux";
+// import { createStore } from "redux";
 import {configureStore, createSlice} from '@reduxjs/toolkit';
 
 
@@ -57,6 +57,7 @@ const counterSlice = createSlice({
 //   return state;
 // };
 // -------------------------------------------------------------
+
 const store = configureStore( {reducer : counterSlice.reducer} );
 export const counterActions = counterSlice.actions; 
 //now we can access another files these actions..
